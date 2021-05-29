@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj": {}
+    "C:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj": {}
   },
   "projects": {
-    "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj": {
+    "C:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj",
+        "projectUniqueName": "C:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj",
         "projectName": "DatabaseCreate",
-        "projectPath": "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj",
+        "projectPath": "C:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj",
         "packagesPath": "C:\\Users\\pan26\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\obj\\",
+        "outputPath": "C:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pan26\\AppData\\Roaming\\NuGet\\NuGet.Config",

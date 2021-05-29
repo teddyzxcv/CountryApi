@@ -14,7 +14,7 @@ namespace DatabaseCreate
     class Program
     {
         private const string ConnectionString =
-            "Host=postgres;Port=5432;User ID=teddyzxcv;Password=1234;Database=postgrestest;";
+            "Host=localhost;Port=5432;User ID=teddyzxcv;Password=1234;Database=postgres;";
 
         static NpgsqlConnection db;
 
@@ -24,19 +24,38 @@ namespace DatabaseCreate
             await Task.Delay(3000);
             db = new NpgsqlConnection(ConnectionString);
             await CreateTable();
-            var res = await "https://restcountries.eu/rest/v2/all".GetJsonAsync<IEnumerable<Country>>();
+            var res = await "https://restcountries.eu/rest/v2/all".GetJsonAsync<List<Country>>();
+            Console.WriteLine(res.ToString());
+            List<Country> countries = (List<Country>)res;
+            foreach (var VARIABLE in countries)
+            {
+                await db.QueryAsync(
+                    $"insert into public.COUNTRIES (NAME,topLevelDomain,alpha2Code,alpha3Code,callingCodes,capital,region,subregion,population,timezones) values (@NAME,@topLevelDomain,@alpha2Code,@alpha3Code,@callingCodes,@capital,@region,@subregion,@population,@timezones);",
+                    new
+                    {
+                        NAME = VARIABLE.Name, topLevelDomain = VARIABLE.topLevelDomain,
+                        alpha2Code = VARIABLE.alpha2Code, alpha3Code = VARIABLE.alpha3Code,
+                        callingCodes = VARIABLE.callingCodes, capital = VARIABLE.capital, region = VARIABLE.region,
+                        subregion = VARIABLE.subregion, population = VARIABLE.population, timezones = VARIABLE.timezones
+                    });
+            }
         }
 
         static async Task CreateTable()
         {
             var query =
-                @"CREATE TABLE public.EXCHANGE(
+                @"CREATE TABLE public.COUNTRIES(
                    ID SERIAL PRIMARY KEY     NOT NULL,
                    NAME          TEXT       NOT NULL,
-                   topLevelDomain        REAL,
-                   alpha2Code         REAL,
+                   topLevelDomain        TEXT[],
+                   alpha2Code         TEXT,
                    alpha3Code         TEXT,
-                   
+                   callingCodes TEXT[],
+                   capital  TEXT,
+                   region TEXT,
+                   subregion TEXT,
+                   population REAL,
+                   timezones TEXT[]
                 );";
 
             await db.QueryAsync(
@@ -48,102 +67,15 @@ namespace DatabaseCreate
 
     class Country
     {
-        [JsonProperty("name")] 
-        public string Name;
-        public string topLevelDomain;
+        [JsonProperty("name")] public string Name;
+        public string[] topLevelDomain;
         public string alpha2Code;
         public string alpha3Code;
-        public int callingCodes;
-
-
-//         "callingCodes": [
-//         "93"
-//         ],
-//         "capital": "Kabul",
-//         "altSpellings": [
-//         "AF",
-//         "Afġānistān"
-//         ],
-//         "region": "Asia",
-//         "subregion": "Southern Asia",
-//         "population": 27657145,
-//         "latlng": [
-//         33.0,
-//         65.0
-//         ],
-//         "demonym": "Afghan",
-//         "area": 652230.0,
-//         "gini": 27.8,
-//         "timezones": [
-//         "UTC+04:30"
-//         ],
-//         "borders": [
-//         "IRN",
-//         "PAK",
-//         "TKM",
-//         "UZB",
-//         "TJK",
-//         "CHN"
-//         ],
-//         "nativeName": "افغانستان",
-//         "numericCode": "004",
-//         "currencies": [
-//         {
-//             "code": "AFN",
-//             "name": "Afghan afghani",
-//             "symbol": "؋"
-//         }
-//         ],
-//         "languages": [
-//         {
-//             "iso639_1": "ps",
-//             "iso639_2": "pus",
-//             "name": "Pashto",
-//             "nativeName": "پښتو"
-//         },
-//         {
-//             "iso639_1": "uz",
-//             "iso639_2": "uzb",
-//             "name": "Uzbek",
-//             "nativeName": "Oʻzbek"
-//         },
-//         {
-//             "iso639_1": "tk",
-//             "iso639_2": "tuk",
-//             "name": "Turkmen",
-//             "nativeName": "Türkmen"
-//         }
-//         ],
-//     "translations": {
-//     "de": "Afghanistan",
-//     "es": "Afganistán",
-//     "fr": "Afghanistan",
-//     "ja": "アフガニスタン",
-//     "it": "Afghanistan",
-//     "br": "Afeganistão",
-//     "pt": "Afeganistão",
-//     "nl": "Afghanistan",
-//     "hr": "Afganistan",
-//     "fa": "افغانستان"
-        public Dictionary<string, string> tranlations = new Dictionary<string, string>();
-// },
-// "flag": "https://restcountries.eu/data/afg.svg",
-// "regionalBlocs": [
-// {
-//     "acronym": "SAARC",
-//     "name": "South Asian Association for Regional Cooperation",
-//     "otherAcronyms": [
-//           
-//     ],
-//     "otherNames": [
-//           
-//     ]
-// }
-// ],
-// "cioc": "AFG"
-        public string cioc;
-
+        public string[] callingCodes;
+        public string capital;
+        public string region;
+        public string subregion;
+        public int population;
+        public List<string> timezones = new List<string>();
     }
-}
-
 }
