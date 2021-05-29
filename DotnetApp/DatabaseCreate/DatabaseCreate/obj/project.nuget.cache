@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "3NiJqPRIWoGilFOMKKp/Wl5gBqbPSxCsGvQsp0F3sylk8aOW8cz0zb7wbZN/EJkJGuwmHjyD+a4ueRRLMNxGoQ==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\pan26\\Documents\\GitHub\\CountryApi\\DotnetApp\\DatabaseCreate\\DatabaseCreate\\DatabaseCreate.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pan26\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\flurl\\3.0.1\\flurl.3.0.1.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\flurl.http\\3.0.1\\flurl.http.3.0.1.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\npgsql\\5.0.4\\npgsql.5.0.4.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "C:\\Users\\pan26\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}

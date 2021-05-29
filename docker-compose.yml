@@ -1,0 +1,26 @@
+version: "3"
+services:
+  web:
+    container_name: "dotnetcoretest"
+    build:
+      context: .
+      dockerfile: DotnetApp/DatabaseCreate/Dockerfile
+    ports:
+      - "8090:80"
+    depends_on:
+      - "postgres"
+
+  postgres:
+    image: "postgres:13"
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_USER=teddyzxcv
+      - POSTGRES_DB=postgrestest
+    volumes:
+      - "data-volume:/var/lib/postgresql/data"
+
+volumes:
+  data-volume:
